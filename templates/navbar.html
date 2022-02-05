@@ -1,57 +1,30 @@
-<nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
-
-
-    <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
-
-        <div class="w-1/2 pl-2 md:pl-0">
-            <a class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold" href="{% url "index" %}">
-                 Olympics
-            </a>
-        </div>
-        <div class="w-1/2 pr-0">
-            <div class="flex relative inline-block float-right">
-
-                
-
-
-            
-
-        </div>
-
-
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white z-20" id="nav-content">
-            <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-                <li class="mr-6 my-2 md:my-0">
-                    <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600">
-                        <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
-                    </a>
-                </li>
-                <li class="mr-6 my-2 md:my-0">
-                    <a href="{% url 'athlete' %}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-pink-500">
-                        <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Athletes</span>
-                    </a>
-                </li>
-                <li class="mr-6 my-2 md:my-0">
-                    <a href="{% url 'country' %}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-purple-500">
-                        <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Countries</span>
-                    </a>
-                </li>
-                <li class="mr-6 my-2 md:my-0">
-                    <a href="{% url 'sparql' %}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-red-500">
-                        <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Sparql</span>
-                    </a>
-                </li>
-                <li class="mr-6 my-2 md:my-0">
-                    <a href="{% url 'ontology' %}" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-red-500">
-                        <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Ontology</span>
-                    </a>
-                </li>
-                
-            </ul>
-
-            
-
-        </div>
-
+<nav class="bg-white fixed w-full z-10 top-0 shadow px-3 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <a href="{% url "index" %}" class="flex">
+      <img class="mr-3 h-10" viewBox="0 0 52 72" fill="none" src='https://olympics.com/images/static/b2p-images/logo_color.svg'> </img>
+        <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Olympics</span>
+    </a>
+    <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+        <li>
+          <a href="{% url 'athlete' %}" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Athlete</a>
+        </li>
+        <li>
+          <a href="{% url 'country' %}" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Country</a>
+        </li>
+        <li>
+          <a href="{% url 'sparql' %}" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sparql</a>
+        </li>
+        <li>
+          <a href="{% url 'ontology' %}" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Ontology</a>
+        </li>
+        
+      </ul>
     </div>
+  </div>
 </nav>
