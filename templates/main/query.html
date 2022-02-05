@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+    table,
+    th,
+    td {
+        font-size: 10pt;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+</style>
+
+{% endblock head %}
+{% block content %}  
+    {% include "navbar.html" %}
+<br>
+<div class="px-8">
+
+    <form method="post">
+        {% csrf_token %}
+        <label class="block text-left" style="max-width: 1000px">
+            <span class="text-black font-bold text-lg">Enter Your QUERY</span>
+            <textarea class="
+            form-textarea
+            text-lg
+            focus:text-black
+            mt-1
+            block
+            h-full
+            w-full
+            border-solid border-4 border-light-blue-500
+            " rows="7" id="he" name="query" placeholder="Put your sparql query Here" ></textarea>
+        </label>
+        <br>
+
+        <button class="
+        center-align
+        bg-blue-500
+        hover:bg-blue-700
+        text-white
+        font-bold
+        py-2
+        px-4
+        rounded-full
+        items-center
+        ">
+            SUMIT
+        </button>
+
+    </form>
+    <input type="hidden" id="myVar1" name="variable" value="{{ preload }}">
+    <script>
+        var myVar = document.getElementById("myVar1").value;
+
+        var myInputs = document.getElementsByTagName("textarea");
+
+
+        myInputs[0].value = myVar;
+        
+    </script>
+
+    {% if output %}
+    <br>
+    <h1 class="mt-2 text-sm text-gray-400">Total length of output : {{length}}</h1>
+    <br>
+    <input type="hidden" id="myVar" name="variable" value="{{ output }}">
+
+    <script>
+        var myVar = document.getElementById("myVar").value;
+        document.write(myVar);
+        
+    </script>
+
+    {% endif %}
+<script>
+    var textareas = document.getElementsByTagName('textarea');
+    var count = textareas.length;
+    for(var i=0;i<count;i++){
+        textareas[i].onkeydown = function(e){
+            if(e.keyCode==9 || e.which==9){
+                e.preventDefault();
+                var s = this.selectionStart;
+                this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+                this.selectionEnd = s+1; 
+            }
+        }
+    }
+</script>
+</div>
+{% endblock  %}

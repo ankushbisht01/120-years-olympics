@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+    a { color: #85AED8; } /* CSS link color */
+    .note {
+    font-style: italic;
+    font-weight: bold;
+}
+
+    .editorial {
+    background: rgba(7, 7, 7, 0.25);
+    padding: 10px;
+}
+  </style>
+{%  endblock head %}
+{% block content %}  
+    {% include "navbar.html" %}
+    <!--Container-->
+    <div class="container w-full mx-auto pt-20">
+
+        <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+
+            <!--Console Content-->
+
+            <h1 class="font-bold text-3xl">The Olympics Knowledge Graph</h1> 
+
+            <!--Divider-->
+            <hr class="border-b-2 border-gray-400 my-8 mx-4">
+
+            <p class='text-xl'>
+                Welcome to the Olympics Knowledge Graph! 
+            </p>
+            <br>
+            <p class='text-xl'>
+                This graph contains structured information about the Olympics from 1896 to 2020 .
+                
+            </p>
+            <br>
+            <p class='text-xl'>
+                In particular, it contains information about:
+                <ui class="list-inside">
+                    <li class='text-xl '>
+                        Athlete Name who participated in the olympics .
+                    </li>
+                    <li class='text-xl'>
+                        Height , Weight and Age of the athlete to the corresponding year of participation .
+                    </li>
+                    <li class='text-xl'>
+                        The sport in which that athlete participated .
+                    </li>
+                    <li class='text-xl'>
+                        The type of  medal won by the athlete .
+                    </li>
+                    <li class='text-xl'>
+                        The NOC name and the name of the country they are particiaping in the olympics .
+                    </li>
+                    <li class='text-xl'>
+                        The season in which the olympics occured along with the name of the host city  .
+                    </li>
+                    
+                </ui> 
+                
+            </p>
+            <br>
+            <p class = "text-xl">
+                The query service can be accessed at 
+                <a href="{% url 'sparql' %}"> https://olympicswebapp.herokuapp.com/sparql </a>
+                 
+                
+            </p>
+            <br>
+            <p class = "text-xl note editorial"> 
+                    Remote endpoint will be added soon for developers .
+            </p>
+            <br>
+            <p class = "text-xl">
+                The question answering service can be accessed under  
+                <a href="#"> Under Progress </a>               
+            </p>
+            <br>
+            <p class = "text-xl">
+                New knowledge will be added continuously.
+            </p>
+
+            <!--/ Console Content-->
+
+        </div>
+
+
+    </div>
+    <!--/container-->
+
+    
+
+    <script>
+    /*Toggle dropdown list*/
+    /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+    var userMenuDiv = document.getElementById("userMenu");
+    var userMenu = document.getElementById("userButton");
+
+    var navMenuDiv = document.getElementById("nav-content");
+    var navMenu = document.getElementById("nav-toggle");
+
+    document.onclick = check;
+
+    function check(e) {
+        var target = (e && e.target) || (event && event.srcElement);
+
+        //User Menu
+        if (!checkParent(target, userMenuDiv)) {
+            // click NOT on the menu
+            if (checkParent(target, userMenu)) {
+                // click on the link
+                if (userMenuDiv.classList.contains("invisible")) {
+                    userMenuDiv.classList.remove("invisible");
+                } else { userMenuDiv.classList.add("invisible"); }
+            } else {
+                // click both outside link and outside menu, hide menu
+                userMenuDiv.classList.add("invisible");
+            }
+        }
+
+        //Nav Menu
+        if (!checkParent(target, navMenuDiv)) {
+            // click NOT on the menu
+            if (checkParent(target, navMenu)) {
+                // click on the link
+                if (navMenuDiv.classList.contains("hidden")) {
+                    navMenuDiv.classList.remove("hidden");
+                } else { navMenuDiv.classList.add("hidden"); }
+            } else {
+                // click both outside link and outside menu, hide menu
+                navMenuDiv.classList.add("hidden");
+            }
+        }
+
+    }
+
+    function checkParent(t, elm) {
+        while (t.parentNode) {
+            if (t == elm) { return true; }
+            t = t.parentNode;
+        }
+        return false;
+    }
+    </script>
+
+{% endblock %}
+
+</html>

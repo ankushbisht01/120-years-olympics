@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://olympicswebapp.herokuapp.com/ontology/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://olympicswebapp.herokuapp.com/ontology/">
+    <Prefix name="" IRI="http://www.semanticweb.org/ankush/ontologies/2022/0/untitled-ontology-11"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#NOC"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#athlete"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#city"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#games"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#gender"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#instance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#medal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#season"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#team"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hascompetitor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasevent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hashost"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasparticipent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ishostof"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isparticipatedinyear"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#NOCname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#age"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cityname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#eventname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#height"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#medalname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#seasonName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#sex"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#sportname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#teamname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#weight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#year"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#NOC"/>
+        <Class IRI="#instance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#athlete"/>
+        <Class IRI="#instance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#city"/>
+        <Class IRI="#games"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#event"/>
+        <Class IRI="#instance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#games"/>
+        <Class IRI="#instance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#gender"/>
+        <Class IRI="#athlete"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#medal"/>
+        <Class IRI="#instance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#season"/>
+        <Class IRI="#games"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#sport"/>
+        <Class IRI="#event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#team"/>
+        <Class IRI="#NOC"/>
+    </SubClassOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hascompetitor"/>
+        <Class IRI="#sport"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasevent"/>
+        <Class IRI="#sport"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hashost"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#year"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasparticipent"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#year"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ishostof"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#cityname"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isparticipatedinyear"/>
+        <Class IRI="#athlete"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hascompetitor"/>
+        <Class IRI="#athlete"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasevent"/>
+        <Class IRI="#event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hashost"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#cityname"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasparticipent"/>
+        <Class IRI="#athlete"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ishostof"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#year"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isparticipatedinyear"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#year"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#NOCname"/>
+        <Class IRI="#NOC"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Name"/>
+        <Class IRI="#athlete"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#age"/>
+        <Class IRI="#athlete"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cityname"/>
+        <Class IRI="#city"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#eventname"/>
+        <Class IRI="#event"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#height"/>
+        <Class IRI="#athlete"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#medalname"/>
+        <Class IRI="#medal"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#seasonName"/>
+        <Class IRI="#season"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#sex"/>
+        <Class IRI="#gender"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#sportname"/>
+        <Class IRI="#sport"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#teamname"/>
+        <Class IRI="#team"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#weight"/>
+        <Class IRI="#athlete"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#year"/>
+        <Class IRI="#games"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#NOCname"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Name"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#age"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cityname"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#eventname"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#height"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#medalname"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#seasonName"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#sex"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#sportname"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#teamname"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#weight"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#year"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
