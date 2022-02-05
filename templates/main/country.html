@@ -124,7 +124,7 @@
 {% endblock head %}
 {% block content %}
 <div x-data="setup()" :class="{ 'dark': isDark }">
-    <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-white-700 text-black dark:text-white">
 
       <!-- Header -->
       {% include "navbar.html" %}
@@ -210,7 +210,7 @@
                 <div class="w-full max-w-md">
                     <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
                         <div class="block text-gray-700 text-lg font-semibold py-2 px-2">
-                            Athlete List
+                            Country List
                         </div>
                     <form method="post" >
                     {% csrf_token %}
@@ -251,7 +251,7 @@
                 <div class="w-full max-w-md">
                     <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
                         <div class="block text-gray-700 text-lg font-semibold py-2 px-2">
-                            Athlete List
+                            Country List
                         </div>
                     <form method="post" >
                     {% csrf_token %}
