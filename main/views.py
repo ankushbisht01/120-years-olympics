@@ -324,6 +324,10 @@ def query_endpoint(request): #for quering data from the olympics rdf
         return render(request,'main/query.html',context=context)
     return render(request,'main/query.html',context=context)
 
+def sparql_endpoint(request):
+    return render(request,'main/sparql.html')
+
+    
 def ontology(request):
     with open('main/olympic.owl','r') as f:
         lines = f.readlines()

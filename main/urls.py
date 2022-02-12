@@ -25,7 +25,8 @@ urlpatterns =[
     path('country_profile/<str:name>',views.country_profile , name = "country-profile"),
     path('country_statatics/<str:name>',views.country_statatics , name = "country-statatics"),
 
-    path('sparql/',views.query_endpoint,name='sparql'),
+    path('sparql/',views.sparql_endpoint,name='sparql'),
+    
     path('ontology/',views.ontology,name='ontology'),
     path('',views.index , name = "index")
 ]
