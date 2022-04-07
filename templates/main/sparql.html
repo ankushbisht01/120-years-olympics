@@ -7,18 +7,26 @@
 {% endblock head %}
 
 {% block content %}
+<section>
 
-<div id="yasgui"></div>
-<script>
-    
-    const yasgui = new Yasgui(document.getElementById("yasgui"), {
-        requestConfig: { endpoint: "https://olympics120.herokuapp.com/olympics/sparql" },
-        copyEndpointOnNewTab: false,
+    <div>
+        {% include "navbar.html" %}
+    </div>
+</section>
+<section>
+
+    <div id="yasgui"></div>
+    <script>
         
-    });
+        const yasgui = new Yasgui(document.getElementById("yasgui"), {
+            requestConfig: { endpoint: "https://olympics120.herokuapp.com/olympics/sparql" },
+            copyEndpointOnNewTab: false,
+            
+        });
+        
     
-
-</script>
+    </script>
+</section>
 
 
 

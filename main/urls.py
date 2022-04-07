@@ -28,5 +28,17 @@ urlpatterns =[
     path('sparql/',views.sparql_endpoint,name='sparql'),
     
     path('ontology/',views.ontology,name='ontology'),
+
+
+    path('sports/',views.sports ,name='sports'),
+    path("allsports/",views.all_sports , name='allsports'),
+    path("allsports_event/",views.all_sports_forevents , name='allsportsevent'),
+    path("allsports_player/",views.all_sports_fortopplayer , name='allsportsplayer'),
+    path('events/<str:sport>',views.all_event ,name='all_event'),
+    path('top_player/<str:sport>',views.top_athlete ,name='top_athlete'),
+
+
+    
     path('',views.index , name = "index")
+
 ]

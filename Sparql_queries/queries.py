@@ -1224,5 +1224,96 @@ class get_data:
         results = self.sparql.query().convert().decode("utf-8")
         return results
                 
+    def age_medal(self,name):
+        query = '''
+        PREFIX walls: <http://wallscope.co.uk/ontology/olympics/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX dbp: <http://dbpedia.org/property/>
+        PREFIX na: <http://wallscope.co.uk/resource/olympics/athlete/>
+        SELECT ?age (COUNT(?medal) As ?noOfMedals)
+        WHERE {
+        ?instance walls:athlete ?athelete ;
+                walls:medal ?medal .
+        ?athelete foaf:age ?age ;
+                  rdfs:label ?name .
+        filter contains(?name , \"'''+name+'''\")
+                            
+                
+                }
+                GROUP BY ?age
+                ORDER BY ?age
+       
+        '''
+    #sports cornor 
+    ###########################################################
+    
+    def top_scorer(self,sport):
+        query = '''
+        PREFIX walls: <http://wallscope.co.uk/ontology/olympics/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX dbp: <http://dbpedia.org/property/>
+        PREFIX na: <http://wallscope.co.uk/resource/olympics/athlete/>
+
+		SELECT ?name  (count(?medal) as ?medalcount )
+        WHERE {
+        ?instance walls:athlete ?athlete ;
+                walls:event   ?event  ;
+                walls:medal ?medal .
+         ?event rdfs:subClassOf ?sport .
+          ?sport rdfs:label ?sportname .
+  		?athlete rdfs:label ?name .
+  		?event rdfs:label ?eventname.
+ 		 filter contains(?sportname , "'''+sport+'''")
         
+        }
+		Group by ?name
+        order by DESC(?medalcount)
+	    Limit 10
+        '''
+        self.sparql.setQuery(query)
+        self.sparql.setReturnFormat(JSON)
+        results = self.sparql.query().convert()
         
+        athlete = []
+        medal_count = []
+        
+        for result in results["results"]["bindings"]:
+            athlete.append( result["name"]["value"])
+            medal_count.append(result["medalcount"]["value"])
+        return athlete , medal_count
+
+    
+    #get all the events in a sport 
+    def get_evenets(self,sport):
+        query = '''
+        PREFIX walls: <http://wallscope.co.uk/ontology/olympics/>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+        PREFIX dbp: <http://dbpedia.org/property/>
+        PREFIX na: <http://wallscope.co.uk/resource/olympics/athlete/>
+
+		SELECT ?eventname
+        WHERE {
+        ?instance walls:athlete ?athlete ;
+                walls:event   ?event  ;
+                walls:medal ?medal .
+         ?event rdfs:subClassOf ?sport .
+          ?sport rdfs:label ?sportname .
+  		?athlete rdfs:label ?name .
+  		?event rdfs:label ?eventname.
+ 		 filter contains(?sportname , "'''+sport+'''")
+        
+        }
+		Group by ?eventname
+        '''
+        self.sparql.setQuery(query)
+        self.sparql.setReturnFormat(JSON)
+        results = self.sparql.query().convert()
+        
+        event = []
+        
+        for result in results["results"]["bindings"]:
+            event.append( result["eventname"]["value"]) 
+        return event

@@ -332,3 +332,66 @@ def ontology(request):
     with open('main/olympic.owl','r') as f:
         lines = f.readlines()
     return HttpResponse(lines,content_type='text/xml')
+
+def sports(request):
+    return render(request,'main/sports.html')
+
+def all_event(request,sport):
+    name = "".join(x for x in sport if x.isalnum())
+    sparqlQ = get_data()
+    events = sparqlQ.get_evenets(sport)
+    context = {
+        'events':events,
+        'flag3':True,
+        'title':'All Events in '+sport
+    }
+    return render(request,'main/sports.html',context)
+
+
+def all_sports(request):
+    sparqlQ = get_data()
+    events = sparqlQ.all_sports()
+    context = {
+        'sports':events,
+        'flag':True,
+        'title':"ALL SPORTS"
+    }
+    
+    return render(request,'main/sports.html',context)
+
+def all_sports_forevents(request):
+    sparqlQ = get_data()
+    events = sparqlQ.all_sports()
+    events = [x for x in events if x.isalnum()]
+    context = {
+        'sports':events,
+        'flag':True,
+        'flag2':True,
+        'title':"ALL SPORTS"
+    }
+    
+    
+    return render(request,'main/sports.html',context)
+def all_sports_fortopplayer(request):
+    sparqlQ = get_data()
+    events = sparqlQ.all_sports()
+    events = [x for x in events if x.isalnum()]
+    context = {
+        'sports':events,
+        'flag':True,
+        'flag4':True,
+        'title':"ALL SPORTS"
+    }
+    
+    
+    return render(request,'main/sports.html',context)
+
+def top_athlete(request,sport):
+    sparqlQ = get_data()
+    name,medal = sparqlQ.top_scorer(sport)
+    context = {
+        'name':zip(name,medal),
+        'flag5':True,
+        'title':'Top 10 Player in '+sport,
+    }
+    return render(request,'main/sports.html',context)

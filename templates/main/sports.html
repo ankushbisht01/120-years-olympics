@@ -1,0 +1,311 @@
+{% extends "base.html"%}
+{% block head %}
+<style>
+  /* Compiled dark classes from Tailwind */
+  .dark .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
+    border-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:bg-gray-50 {
+    background-color: rgba(249, 250, 251);
+  }
+  .dark .dark\:bg-gray-100 {
+    background-color: rgba(243, 244, 246);
+  }
+  .dark .dark\:bg-gray-600 {
+    background-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:bg-gray-700 {
+    background-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:bg-gray-800 {
+    background-color: rgba(31, 41, 55);
+  }
+  .dark .dark\:bg-gray-900 {
+    background-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:bg-red-700 {
+    background-color: rgba(185, 28, 28);
+  }
+  .dark .dark\:bg-green-700 {
+    background-color: rgba(4, 120, 87);
+  }
+  .dark .dark\:hover\:bg-gray-200:hover {
+    background-color: rgba(229, 231, 235);
+  }
+  .dark .dark\:hover\:bg-gray-600:hover {
+    background-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:hover\:bg-gray-700:hover {
+    background-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:hover\:bg-gray-900:hover {
+    background-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:border-gray-100 {
+    border-color: rgba(243, 244, 246);
+  }
+  .dark .dark\:border-gray-400 {
+    border-color: rgba(156, 163, 175);
+  }
+  .dark .dark\:border-gray-500 {
+    border-color: rgba(107, 114, 128);
+  }
+  .dark .dark\:border-gray-600 {
+    border-color: rgba(75, 85, 99);
+  }
+  .dark .dark\:border-gray-700 {
+    border-color: rgba(55, 65, 81);
+  }
+  .dark .dark\:border-gray-900 {
+    border-color: rgba(17, 24, 39);
+  }
+  .dark .dark\:hover\:border-gray-800:hover {
+    border-color: rgba(31, 41, 55);
+  }
+  .dark .dark\:text-white {
+    color: rgba(255, 255, 255);
+  }
+  .dark .dark\:text-gray-50 {
+    color: rgba(249, 250, 251);
+  }
+  .dark .dark\:text-gray-100 {
+    color: rgba(243, 244, 246);
+  }
+  .dark .dark\:text-gray-200 {
+    color: rgba(229, 231, 235);
+  }
+  .dark .dark\:text-gray-400 {
+    color: rgba(156, 163, 175);
+  }
+  .dark .dark\:text-gray-500 {
+    color: rgba(107, 114, 128);
+  }
+  .dark .dark\:text-gray-700 {
+    color: rgba(55, 65, 81);
+  }
+  .dark .dark\:text-gray-800 {
+    color: rgba(31, 41, 55);
+  }
+  .dark .dark\:text-red-100 {
+    color: rgba(254, 226, 226);
+  }
+  .dark .dark\:text-green-100 {
+    color: rgba(209, 250, 229);
+  }
+  .dark .dark\:text-blue-400 {
+    color: rgba(96, 165, 250);
+  }
+  .dark .group:hover .dark\:group-hover\:text-gray-500 {
+    color: rgba(107, 114, 128);
+  }
+  .dark .group:focus .dark\:group-focus\:text-gray-700 {
+    color: rgba(55, 65, 81);
+  }
+  .dark .dark\:hover\:text-gray-100:hover {
+    color: rgba(243, 244, 246);
+  }
+  .dark .dark\:hover\:text-blue-500:hover {
+    color: rgba(59, 130, 246);
+  }
+
+  /* Custom style */
+  .header-right {
+      width: calc(100% - 3.5rem);
+  }
+  .sidebar:hover {
+      width: 16rem;
+  }
+  @media only screen and (min-width: 768px) {
+      .header-right {
+          width: calc(100% - 16rem);
+      }        
+  }
+</style>
+{% endblock head %}
+{% block content %}
+<div x-data="setup()"  >
+    <div class="min-h-screen flex flex-col flex-auto flex-shrink-0  antialiased bg-white dark:bg-white-700 text-black dark:text-white">
+
+      <!-- Header -->
+      {% include "navbar.html" %}
+      <!-- ./Header -->
+    
+      <!-- Sidebar -->
+      <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+      <div class="fixed flex flex-col top-14 left-0 w-30 hover:w-64 md:w-64 bg-white dark:bg-white-900 h-full text-white transition-all duration-300 border-none z-10 sidebarmd:block md:block md:w-auto" id="mobile-menu">
+        <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow hover:text ">
+          <ul class="flex flex-col py-4 space-y-3">
+            <li class="px-5 hidden md:block">
+              <div class="flex flex-row items-center h-8">
+                <div class="text-l font-bold tracking-wide text-black uppercase">USE CASES</div>
+              </div>
+            </li>
+            <li>
+              <a href="{% url 'allsports' %}" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                
+                <span class="ml-2 text-sm tracking-wide truncate">All Events</span>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'allsportsevent' %}" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                
+                <span class="ml-2 text-sm tracking-wide truncate">All Events in the Sport</span>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'allsportsplayer' %}" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                
+                <span class="ml-2 text-sm tracking-wide truncate">Top 10 Players of The Sport</span>
+              </a>
+            </li>
+            
+            
+            
+
+            
+        </div>
+      </div>
+      <!-- ./Sidebar -->
+    
+      <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+    
+        <!-- Statistics Cards -->
+        {% if flag %}
+        <div class="w-full max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-center p-4 px-3 py-10">
+                <div class="w-full max-w-md">
+                    <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
+                        <div class="block text-gray-700 text-lg font-semibold py-2 px-2">
+                            {{title}}
+                        </div>
+                    
+                        <div class="py-3 text-sm">
+                            
+                            {% for name in sports  %}
+                
+                            {% if flag2 %}
+                            <a href="{% url 'all_event' name %}">
+                                
+                            <div class="flex justify-start cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+                                <span class="bg-gray-400 h-2 w-2 m-2 rounded-full"></span>
+                                <div class="flex-grow font-medium px-2">{{name}}</div>
+                                
+                            </div>
+                            </a>
+                            {% elif flag4 %}
+                            <a href="{% url 'top_athlete' name %}">
+                                
+                            <div class="flex justify-start cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+                                <span class="bg-gray-400 h-2 w-2 m-2 rounded-full"></span>
+                                <div class="flex-grow font-medium px-2">{{name}}</div>
+                                
+                            </div>
+                            </a>
+                            {% else %}
+                            <div class="flex justify-start cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+                                <span class="bg-gray-400 h-2 w-2 m-2 rounded-full"></span>
+                                <div class="flex-grow font-medium px-2">{{name}}</div>
+                                
+                            </div>
+                            {% endif %}
+                        
+                            {% endfor %}
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if flag3 %}
+        
+        <div class="w-full max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-center p-4 px-3 py-10">
+                <div class="w-full max-w-md">
+                    <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
+                        <div class="block text-gray-700 text-lg font-semibold py-2 px-2">
+                            {{title}}
+                        </div>
+                    
+                        <div class="py-3 text-sm">
+                            
+                            {% for name in events  %}
+                
+                           
+                            <div class="flex justify-start cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+                                <span class="bg-gray-400 h-2 w-2 m-2 rounded-full"></span>
+                                <div class="flex-grow font-medium px-2">{{name}}</div>
+                                
+                            </div>
+                           
+                        
+                            {% endfor %}
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if flag5 %}
+        <div class="w-full max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-center p-4 px-3 py-10">
+                <div class="w-full max-w-md">
+                    <div class="bg-white shadow-md rounded-lg px-3 py-2 mb-4">
+                        <div class="block text-gray-700 text-lg font-semibold py-2 px-2">
+                            {{title}}
+                        </div>
+                    
+                        <div class="py-3 text-sm">
+                            {% for ath , medal in name  %}
+                
+                            <a href="#" >
+                            <div class="flex justify-start cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+                                <span class="bg-gray-400 h-2 w-2 m-2 rounded-full"></span>
+                                <div class="flex-grow font-medium px-2">{{ath}}</div>
+                                <div class="text-sm font-normal text-gray-500 tracking-wide">{{medal}} </div>
+                            </div>
+                        </a>
+                            {% endfor %}
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- ./External resources -->
+      </div>
+    </div>
+  </div>    
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+  <script>
+    const setup = () => {
+      const getTheme = () => {
+        if (window.localStorage.getItem('dark')) {
+          return JSON.parse(window.localStorage.getItem('dark'))
+        }
+        return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+
+      const setTheme = (value) => {
+        window.localStorage.setItem('dark', value)
+      }
+
+      return {
+        loading: true,
+        isDark: getTheme(),
+        toggleTheme() {
+          this.isDark = !this.isDark
+          setTheme(this.isDark)
+        },
+      }
+    }
+  </script>
+
+{% endblock %}
