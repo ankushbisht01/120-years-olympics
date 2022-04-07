@@ -537,7 +537,7 @@
 }
 
 .u-section-4 .u-image-1 {
-  background-image: url("images/pexelsphoto863988.jpeg");
+  background-image: url("/static/admin/img/pexelsphoto863988.jpeg");
   min-height: 536px;
   background-position: 100% 50%;
 }
@@ -590,7 +590,7 @@
 
 .u-section-4 .u-image-2 {
   min-height: 536px;
-  background-image: url("images/pexelsphoto863988.jpeg");
+  background-image: url("/static/admin/img/pexelsphoto863988.jpeg");
   background-position: 0% 50%;
 }
 
@@ -914,19 +914,19 @@
 }
 
 .u-section-7 .u-image-1 {
-  background-image: url("images/pexelsphoto221210.jpeg");
+  background-image: url("/static/admin/img/pexelsphoto221210.jpeg");
   min-height: 601px;
   background-position: 22.2% 50%;
 }
 
 .u-section-7 .u-image-2 {
-  background-image: url("images/basketballdunkbluegame163452.jpeg");
+  background-image: url("/static/admin/img/basketballdunkbluegame163452.jpeg");
   min-height: 290px;
   background-position: 41.93% 50%;
 }
 
 .u-section-7 .u-image-3 {
-  background-image: url("images/pexelsphoto1246953.jpeg");
+  background-image: url("/static/admin/img/pexelsphoto1246953.jpeg");
   min-height: 300px;
   background-position: 50% 50%;
 }
@@ -940,13 +940,13 @@
 }
 
 .u-section-7 .u-image-4 {
-  background-image: url("images/pexelsphoto974501.jpeg");
+  background-image: url("/static/admin/img/pexelsphoto974501.jpeg");
   min-height: 290px;
   background-position: 50% 50%;
 }
 
 .u-section-7 .u-image-5 {
-  background-image: url("images/pexelsphoto927437.jpeg");
+  background-image: url("/static/admin/img/pexelsphoto927437.jpeg");
   min-height: 591px;
   background-position: 50% 50%;
 }
