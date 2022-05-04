@@ -1,7 +1,7 @@
 # Data Visualisation of 120 Years of  Olympics Record
 A Django and symentics web based open source webapp to visualise Data of Olympics .
 
-## Screenshots
+## Screenshots 
 
 ![App Screenshot](https://i.ibb.co/TWrRQTC/1.png)
 ![App Screenshot](https://i.ibb.co/4WTTHD6/2.png)
